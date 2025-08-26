@@ -1,5 +1,7 @@
 # Criteria
 
+A software for the college compus
+
 ● Creativity – Originality of the solution  
 ● Execution – Working prototype or demo  
 ● Clarity – Clear explanation of your approach  

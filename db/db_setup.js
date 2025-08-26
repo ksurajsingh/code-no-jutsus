@@ -4,10 +4,10 @@ const path = require('path');
 
 // Database connection configuration
 const dbConfig = {
-    host: 'localhost',
-    user: 'your_mysql_user',
-    password: 'your_mysql_password',
-    database: 'your_database_name',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     multipleStatements: true // Allows executing multiple SQL statements from the file
 };
 

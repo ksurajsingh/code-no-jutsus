@@ -14,14 +14,16 @@ CREATE TABLE Students (
     rs_points INT DEFAULT 0
 );
 
--- Comments Table
+-- Comments Table (This represents a doubt thread post or an answer/comment within a thread)
 CREATE TABLE Comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id VARCHAR(255) NOT NULL,
+    parent_comment_id INT DEFAULT NULL, -- For replies, references the parent comment
     content TEXT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     upvote_count INT DEFAULT 0,
-    FOREIGN KEY (student_id) REFERENCES Students(student_id)
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (parent_comment_id) REFERENCES Comments(comment_id) -- Self-referencing for threaded comments
 );
 
 -- Upvote_Activity Table
@@ -32,5 +34,21 @@ CREATE TABLE Upvote_Activity (
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (comment_id) REFERENCES Comments(comment_id),
     FOREIGN KEY (upvoter_student_id) REFERENCES Students(student_id),
-    UNIQUE (comment_id, upvoter_student_id) -- Ensures a student can only upvote a comment once
+    UNIQUE (comment_id, upvoter_student_id)
+);
+
+-- Tags Table (e.g., 'CSE', 'EEE', 'Python', 'React', 'Calculus', 'Job Search')
+CREATE TABLE Tags (
+    tag_id INT AUTO_INCREMENT PRIMARY KEY,
+    tag_name VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT
+);
+
+-- Comment_Tags Table (Many-to-many relationship between Comments and Tags)
+CREATE TABLE Comment_Tags (
+    comment_id INT NOT NULL,
+    tag_id INT NOT NULL,
+    PRIMARY KEY (comment_id, tag_id), -- A comment can have multiple tags, a tag can be on multiple comments
+    FOREIGN KEY (comment_id) REFERENCES Comments(comment_id) ON DELETE CASCADE,
+    FOREIGN KEY (tag_id) REFERENCES Tags(tag_id) ON DELETE CASCADE
 );

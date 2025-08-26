@@ -7,10 +7,42 @@
 ● Use of AI/Tech – Smart and purposeful use of AI/LLM  
 
 
+# Core Features
 
-- [ ] Timely messages converying  in the campus 
-- [ ] Strong notification
-- [ ] seating arrangements 
+- [ ] Student profile
+  - [ ] Work experience [ duration ]
+  - [ ] current status
+  - [ ] upvotes 
+  - [ ] most popular @ 
+  - [ ] 2 sites 
+    - [ ] leetcode 
+    - [ ] github
+    - [ ] codechief
+    - [ ] hackerank
+  - [ ] CGPA 
+  - [ ] Skills  
+
+- [ ] Doubt thread  
+  - [ ] tags  
+    - [ ] subtags  
+  - [ ] Reward functoin 
+    - [ ] 1 point per upvote   
+    - [ ] 1 upvote per id  
+    - [ ] 1 point - 5 rs  [vending machines]
+
+- [ ] senior interaction  
 - [ ] eligible options
 - [ ] placement prep
+- [ ] Timely messages converying  in the campus 
+
+
+
+# EXPERIMENTAL
+
+
+
+# Previous 
+
+- [ ] Strong notification
+- [ ] seating arrangements 
 - [ ] circulars

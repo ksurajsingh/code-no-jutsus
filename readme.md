@@ -28,9 +28,9 @@ A software for the college compus
   - [ ] tags  
     - [ ] subtags  
   - [ ] Reward functoin 
-    - [ ] 1 point per upvote   
     - [ ] 1 upvote per id  
-    - [ ] 1 point - 5 rs  [vending machines]
+    - [ ] 1 upvote - 5 rs  [vending machines]
+    - [ ] 
 
 - [ ] senior interaction  
 - [ ] eligible options

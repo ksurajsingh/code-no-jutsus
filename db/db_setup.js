@@ -1,0 +1,30 @@
+const mysql = require('mysql2/promise');
+const fs = require('fs');
+const path = require('path');
+
+// Database connection configuration
+const dbConfig = {
+    host: 'localhost',
+    user: 'your_mysql_user',
+    password: 'your_mysql_password',
+    database: 'your_database_name',
+    multipleStatements: true // Allows executing multiple SQL statements from the file
+};
+
+async function setupDatabase() {
+    let connection;
+    try {
+        connection = await mysql.createConnection(dbConfig);
+        const schemaSql = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
+        await connection.query(schemaSql);
+        console.log('Database schema created successfully!');
+    } catch (error) {
+        console.error('Error setting up database:', error);
+    } finally {
+        if (connection) {
+            await connection.end();
+        }
+    }
+}
+
+setupDatabase();

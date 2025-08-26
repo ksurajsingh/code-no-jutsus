@@ -1,7 +1,7 @@
 # Development Tools
 
 ## Database
-### MySQL
+### Mariadb 
 Chosen for stateful, multi-user applications, leveraging existing SQL knowledge for rapid development.
 
 ## Backend
